@@ -126,31 +126,31 @@ class TypeWeather {
         description = 'Chuveiros de granizo leves';
         break;
       case 365:
-        description = 'Chuveiros de granizo moderados ou fortes';
+        description = 'Chuveiros de granizo';
         break;
       case 368:
         description = 'Aguaceiros de neve leves';
         break;
       case 371:
-        description = 'Aguaceiros de neve moderados ou fortes';
+        description = 'Aguaceiros de neve / fortes';
         break;
       case 374:
-        description = 'Chuvas leves de pelotas de gelo';
+        description = 'Chuvas leves';
         break;
       case 377:
-        description = 'Chuvas moderadas ou fortes de pelotas de gelo';
+        description = 'Chuvas moderadas ou fortes';
         break;
       case 386:
-        description = 'Chuva fraca e irregular na área com trovões';
+        description = 'Chuva fraca e irregular';
         break;
       case 389:
-        description = 'Chuva moderada ou forte em área com trovoada';
+        description = 'Chuva moderada ou forte';
         break;
       case 392:
-        description = 'Neve fraca e irregular na área com trovões';
+        description = 'Neve fraca e irregular';
         break;
       case 395:
-        description = 'Neve moderada ou forte em área com trovoada';
+        description = 'Neve moderada ou forte';
         break;
       default:
         description = 'Não definido';

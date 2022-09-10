@@ -55,7 +55,9 @@ class _HomWeatherDesktopWidgetState extends State<HomeWeatherDesktopWidget> {
     }
 
     if (state is SearchWeatherError) {
-      widget = Container();
+      widget = Center(
+        child: Text('Ocorreu um erro no servidor: ${state.error}'),
+      );
     }
 
     if (state is SearchWeatherSuccess) {

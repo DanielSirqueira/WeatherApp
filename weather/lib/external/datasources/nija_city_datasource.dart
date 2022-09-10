@@ -9,14 +9,14 @@ class NijaCityDatasource implements SearchCityDatasource {
 
   NijaCityDatasource(this.uno);
 
-  final String key = 'vMC7m6LneVyGyzsy/qeIlQ==9RsCU1wRYibYb8Is';
+  final String key = 'XIqZGf8q/v9THl9MOjPSJA==vNzc2GALbC65kmEA';
 
   @override
   Future<List<City>> getCitysCoordinate(
       {required double latitude, required double longitude}) async {
     var result = await uno.get('https://api.api-ninjas.com/v1/city', params: {
-      'min_lat': '$latitude',
-      'min_lon': '$longitude',
+      'max_lat': '$latitude',
+      'max_lon': '$longitude',
       'country': 'BR',
     }, headers: {
       'X-Api-Key': key,

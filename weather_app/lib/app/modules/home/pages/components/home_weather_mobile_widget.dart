@@ -45,7 +45,9 @@ class _HomWeatherMobileWidgetState extends State<HomeWeatherMobileWidget> {
     }
 
     if (state is SearchWeatherError) {
-      widget = Container();
+      widget = Center(
+        child: Text('Ocorreu um erro no servidor: ${state.error}'),
+      );
     }
 
     if (state is SearchWeatherSuccess) {
@@ -142,7 +144,7 @@ class WeatherMobileWidget extends StatelessWidget {
                   softWrap: true,
                   style: GoogleFonts.rubik(
                     color: Theme.of(context).colorScheme.secondary,
-                    fontSize: 32,
+                    fontSize: 24,
                     fontWeight: FontWeight.w400,
                   ),
                 ),
