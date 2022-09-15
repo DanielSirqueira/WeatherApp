@@ -5,23 +5,12 @@ import 'dart:convert';
 import 'package:weather/domain/entities/city.dart';
 
 class CityModel extends City {
-  @override
-  String name;
-  @override
-  double latitude;
-  @override
-  double longitude;
-  @override
-  String country;
-  @override
-  String state;
-
   CityModel({
-    required this.name,
-    required this.latitude,
-    required this.longitude,
-    required this.country,
-    required this.state,
+    required String name,
+    required double latitude,
+    required double longitude,
+    required String country,
+    required String state,
   }) : super(
           name: name,
           latitude: latitude,
@@ -42,11 +31,11 @@ class CityModel extends City {
 
   factory CityModel.fromMap(Map<String, dynamic> map) {
     return CityModel(
-      name: map['name'] ?? '',
-      latitude: map['latitude']?.toDouble() ?? 0.0,
-      longitude: map['longitude']?.toDouble() ?? 0.0,
-      country: map['country'] ?? '',
-      state: map['state'] ?? '',
+      name: map['name'],
+      latitude: map['latitude']?.toDouble(),
+      longitude: map['longitude']?.toDouble(),
+      country: map['country'],
+      state: map['state'],
     );
   }
 

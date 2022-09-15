@@ -1,11 +1,6 @@
-import 'dart:convert';
-
 import 'package:uno/uno.dart';
-import 'package:weather/domain/entities/city_weather.dart';
 import 'package:weather/domain/errors/error.dart';
 import 'package:weather/infra/datasources/search_weather_datasource.dart';
-import 'package:weather/infra/models/city_weather_model.dart';
-import 'package:weather/utils/city_weather_json.dart';
 
 export 'wttr_datasource.dart';
 
@@ -15,12 +10,12 @@ class WttrDatasource implements SearchWeatherDatasource {
   WttrDatasource(this.uno);
 
   @override
-  Future<CityWeather> getSearch(String city) async {
-    var result = await uno
+  Future<Map<String, dynamic>> getSearch(String city) async {
+    var response = await uno
         .get('https://wttr.in/${city.replaceAll(' ', '%20')}?format=j1');
 
-    if (result.status == 200) {
-      return CityWeatherModel.fromMap(result.data as Map<String, dynamic>);
+    if (response.status == 200) {
+      return response.data as Map<String, dynamic>;
     } else {
       throw DatasourceError(message: "Erro de conexão com o servidor.");
     }

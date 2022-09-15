@@ -2,19 +2,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:weather/domain/entities/city.dart';
+import 'package:weather/domain/usecase/cities/search_cities_coordinate.dart';
+import 'package:weather/domain/usecase/weather/search_weather_by_city.dart';
 
-import 'package:weather/domain/usecase/search_city_usecase.dart';
-import 'package:weather/domain/usecase/search_weather_by_city.dart';
 import 'package:weather_app/app/modules/home/events/search_weather_event.dart';
 import 'package:weather_app/app/modules/home/state/weather_state.dart';
 
 class SearchWeatherBloc extends Bloc<WeatherEvent, SearchWeatherState> {
   final SearchWeatherByCity usecase;
-  final SearchCityUsecase cityUsecase;
+  final SearchCitiesCoordinate cityCoordinateUsecase;
 
   SearchWeatherBloc({
     required this.usecase,
-    required this.cityUsecase,
+    required this.cityCoordinateUsecase,
   }) : super(SearchWeatherLoadgin()) {
     on<GetGeolocationWeatherEvent>(
         (event, emit) => getGeolocationWeather(event, emit));
@@ -27,7 +27,7 @@ class SearchWeatherBloc extends Bloc<WeatherEvent, SearchWeatherState> {
     var position = await _determinePosition();
 
     if (position != null) {
-      var result = await cityUsecase.getCitysCoordinate(
+      var result = await cityCoordinateUsecase(
           latitude: position.latitude, longitude: position.longitude);
 
       result.fold(

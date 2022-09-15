@@ -3,12 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
+import 'dart:async' as _i3;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:weather/domain/entities/city_weather.dart' as _i2;
 import 'package:weather/infra/datasources/search_weather_datasource.dart'
-    as _i3;
+    as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -21,24 +20,19 @@ import 'package:weather/infra/datasources/search_weather_datasource.dart'
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeCityWeather_0 extends _i1.SmartFake implements _i2.CityWeather {
-  _FakeCityWeather_0(Object parent, Invocation parentInvocation)
-      : super(parent, parentInvocation);
-}
-
 /// A class which mocks [SearchWeatherDatasource].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockSearchWeatherDatasource extends _i1.Mock
-    implements _i3.SearchWeatherDatasource {
+    implements _i2.SearchWeatherDatasource {
   MockSearchWeatherDatasource() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.CityWeather> getSearch(String? city) => (super.noSuchMethod(
-          Invocation.method(#getSearch, [city]),
-          returnValue: _i4.Future<_i2.CityWeather>.value(
-              _FakeCityWeather_0(this, Invocation.method(#getSearch, [city]))))
-      as _i4.Future<_i2.CityWeather>);
+  _i3.Future<Map<dynamic, dynamic>> getSearch(String? city) =>
+      (super.noSuchMethod(Invocation.method(#getSearch, [city]),
+              returnValue:
+                  _i3.Future<Map<dynamic, dynamic>>.value(<dynamic, dynamic>{}))
+          as _i3.Future<Map<dynamic, dynamic>>);
 }

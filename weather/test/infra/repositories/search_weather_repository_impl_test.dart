@@ -28,8 +28,8 @@ void main() {
   });
 
   test('Deve retornar um objeto de CityWeather', () async {
-    when(datasource.getSearch('Itaberaí')).thenAnswer(
-        (_) async => CityWeatherModel.fromMap(json.decode(city_weather_json)));
+    when(datasource.getSearch('Itaberaí'))
+        .thenAnswer((_) async => json.decode(city_weather_json));
 
     final result = await repository.search('Itaberaí');
 

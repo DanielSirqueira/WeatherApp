@@ -33,8 +33,6 @@ class _HomWeatherDesktopWidgetState extends State<HomeWeatherDesktopWidget> {
   final SearchWeatherBloc bloc;
   _HomWeatherDesktopWidgetState(this.bloc);
 
-  TextEditingController? cityTextController;
-
   @override
   void initState() {
     super.initState();
@@ -70,12 +68,11 @@ class _HomWeatherDesktopWidgetState extends State<HomeWeatherDesktopWidget> {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        title: Container(
+        title: SizedBox(
           width: 500,
           child: SizedBox(
             height: 50,
             child: TextFormField(
-              controller: cityTextController,
               onFieldSubmitted: (value) {
                 if (value != null && value.isNotEmpty) {
                   var city = City(
@@ -88,7 +85,6 @@ class _HomWeatherDesktopWidgetState extends State<HomeWeatherDesktopWidget> {
                 }
               },
               onChanged: (value) {
-                cityTextController!.text = value;
                 setState(() {});
               },
               decoration: const InputDecoration(

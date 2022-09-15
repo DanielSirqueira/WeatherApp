@@ -7,10 +7,10 @@ import 'package:test/test.dart';
 import 'package:weather/domain/entities/city_weather.dart';
 import 'package:weather/domain/errors/error.dart';
 import 'package:weather/domain/repositories/search_weather_repository.dart';
-import 'package:weather/domain/usecase/search_weather_by_city.dart';
+import 'package:weather/domain/usecase/weather/search_weather_by_city.dart';
 import 'package:weather/infra/models/city_weather_model.dart';
+import 'package:weather/utils/city_weather_json.dart';
 
-import '../../utils/city_weather_json.dart';
 import 'search_weather_by_city_test.mocks.dart';
 
 @GenerateMocks([SearchWeatherRepository])

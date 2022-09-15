@@ -1,11 +1,14 @@
 export 'error.dart';
 
-abstract class SystemError implements Exception {}
+abstract class SystemError implements Exception {
+  SystemError(message);
+}
 
-class InvalidTextError implements SystemError {}
+class InvalidTextError extends SystemError {
+  InvalidTextError(super.message);
+}
 
-class DatasourceError implements SystemError {
-  final String message;
-
-  DatasourceError({this.message = 'Erro no Datasource'});
+class DatasourceError extends SystemError {
+  DatasourceError({String message = 'Error no Datasource'})
+      : super(message = message);
 }

@@ -20,7 +20,7 @@ main() {
   final request = MockRequest();
   final datasource = NijaCityDatasource(uno);
 
-  final String key = 'vMC7m6LneVyGyzsy/qeIlQ==9RsCU1wRYibYb8Is';
+  final String key = 'XIqZGf8q/v9THl9MOjPSJA==vNzc2GALbC65kmEA';
 
   test('Deve retornar uma lista do objeto de City pelas cordenadas', () async {
     when(uno.get('https://api.api-ninjas.com/v1/city', params: {
@@ -52,7 +52,7 @@ main() {
         headers: {}));
 
     final result = await datasource.getCitys('Itaberaí');
-    expect(result, isA<List<City>>());
+    expect(result, isA<List<dynamic>>());
   });
 
   test('Deve retornar um DatasourceError caso o status for diferente de 200',

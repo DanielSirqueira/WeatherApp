@@ -23,7 +23,7 @@ class _SearchCityPageState extends State<SearchCityPage> {
 
   @override
   void dispose() {
-    bloc.close();
+    // bloc.close();
     super.dispose();
   }
 

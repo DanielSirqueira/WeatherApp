@@ -17,7 +17,7 @@ class SearchWeatherByCityImpl implements SearchWeatherByCity {
   @override
   Future<Either<SystemError, CityWeather>> call(String city) async {
     if (city.isEmpty) {
-      return Left(InvalidTextError());
+      return Left(InvalidTextError('Cidade é de preechimento obrigatorio.'));
     }
 
     return repository.search(city);

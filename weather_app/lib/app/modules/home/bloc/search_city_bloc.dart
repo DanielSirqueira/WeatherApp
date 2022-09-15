@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather/domain/usecase/cities/search_cities.dart';
 
-import 'package:weather/domain/usecase/search_city_usecase.dart';
 import 'package:weather_app/app/modules/home/events/search_city_event.dart';
 import 'package:weather_app/app/modules/home/state/search_city_state.dart';
 import 'package:rxdart/rxdart.dart';
 
 class SearchCityBloc extends Bloc<SearchCityEvent, SearchCityState> {
-  SearchCityUsecase usecase;
+  SearchCities usecase;
 
   SearchCityBloc(this.usecase) : super(SearchCityStart()) {
     on<SearchListCityEvent>(
@@ -21,7 +21,7 @@ class SearchCityBloc extends Bloc<SearchCityEvent, SearchCityState> {
 
   Future<void> getListCity(SearchListCityEvent event, Emitter emit) async {
     emit(SearchCityLoading());
-    var result = await usecase.getCitys(event.query);
+    var result = await usecase(event.query);
 
     result.fold(
       (error) => emit(SearchCityError(error)),

@@ -1,6 +1,8 @@
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:weather/domain/usecase/search_city_usecase.dart';
-import 'package:weather/domain/usecase/search_weather_by_city.dart';
+import 'package:weather/domain/entities/city.dart';
+import 'package:weather/domain/usecase/cities/search_cities.dart';
+import 'package:weather/domain/usecase/cities/search_cities_coordinate.dart';
+import 'package:weather/domain/usecase/weather/search_weather_by_city.dart';
 import 'package:weather/external/datasources/nija_city_datasource.dart';
 import 'package:weather/external/datasources/wttr_datasource.dart';
 import 'package:weather/infra/repositories/search_city_repository_impl.dart';
@@ -18,9 +20,13 @@ class HomeModule extends Module {
     Bind((i) => SearchWeatherByCityImpl(i())),
     Bind((i) => NijaCityDatasource(i())),
     Bind((i) => SearchCityRepositoryImpl(i())),
-    Bind((i) => SearchCityUsecaseImpl(i())),
-    Bind.singleton((i) => SearchWeatherBloc(usecase: i(), cityUsecase: i())),
-    Bind.factory((i) => SearchCityBloc(i())),
+    Bind((i) => SearchCitiesImpl(i())),
+    Bind((i) => SearchCitiesCoordinateImpl(i())),
+    Bind.singleton((i) => SearchWeatherBloc(
+          usecase: i(),
+          cityCoordinateUsecase: i(),
+        )),
+    Bind.singleton((i) => SearchCityBloc(i())),
   ];
 
   @override

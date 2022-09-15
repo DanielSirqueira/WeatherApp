@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:weather/domain/entities/city.dart';
+import 'package:weather_app/app/modules/home/bloc/search_city_bloc.dart';
 import 'package:weather_app/app/modules/home/bloc/search_weather_bloc.dart';
 import 'package:weather_app/app/modules/home/events/search_weather_event.dart';
 import 'package:weather_app/app/modules/home/pages/components/home_weather_desktop_widget.dart';
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void dispose() {
     bloc.close();
+    Modular.get<SearchCityBloc>().close();
     super.dispose();
   }
 
